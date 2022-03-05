@@ -61,14 +61,16 @@ class IntroButton extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Avenir',
-                  fontSize: 16,
-                  color: textColor,
-                  fontWeight: FontWeight.bold,
+              Center(
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Avenir',
+                    fontSize: 16,
+                    color: textColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],

@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   device_preview: any
+  iconsax: any
 
 
 dev_dependencies:
@@ -74,6 +75,8 @@ flutter:
     - assets/intro/email.png
     - assets/logo/islamy_logo.png
     - assets/login.png
+    - assets/location.png
+    - assets/choose_language.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
