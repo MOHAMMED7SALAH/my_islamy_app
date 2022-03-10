@@ -1,153 +1,102 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_islamy_app/views/azkar_view.dart';
+import 'package:my_islamy_app/views/profile_view.dart';
 
-class MyBottomNavBar extends StatefulWidget {
-  MyBottomNavBar({Key? key}) : super(key: key);
-
+class MyHomePage1 extends StatefulWidget {
+  const MyHomePage1({
+    Key? key,
+  }) : super(key: key);
   @override
-  State<MyBottomNavBar> createState() => _MyBottomNavBarState();
+  State<MyHomePage1> createState() => _MyHomePage1State();
 }
 
-class _MyBottomNavBarState extends State<MyBottomNavBar> {
-  var currentIndex  = 0;
+class _MyHomePage1State extends State<MyHomePage1> {
+  var index = 0;
+
   final screens = [
-    // WE CAN ADD REAL SCREENS LIKE MyHomeScreen()...
-    Center(
-        child: Text(
-      'Home',
-      style: TextStyle(fontSize: 16),
-    )),
-    Center(
-        child: Text(
-      'Quran',
-      style: TextStyle(fontSize: 16),
-    )),
-    Center(
-        child: Text(
-      'Prayers',
-      style: TextStyle(fontSize: 16),
-    )),
-    Center(
-        child: Text(
-      'Profile',
-      style: TextStyle(fontSize: 16),
-    )),
+    ProfileView(),
+    ProfileView(),
+    AzkarView(),
+    ProfileView(),
   ];
+
   @override
-
   Widget build(BuildContext context) {
-     return Scaffold(
-        // body: screens[index],
-        body: 
-        //THIS DOES'T METHODE DOESN'T KEEP ALL WIDGET ALIVE IN WIDGET TREE
-        // IT KEEP JUST ONE WIDGET = CURRENT WIDGET
-        // screens[currentIndex],
-        IndexedStack(
-          //TO KEEP ALL CHILDREN IN WIDGET TREE ALIVE & STATE 
-          index: currentIndex,
-          children: screens,
-        ),
-        bottomNavigationBar:
+    var size = MediaQuery.of(context).size;
 
-            // NavigationBarTheme(
-
-            //   data: NavigationBarThemeData(
-            //       // indicatorColor:
-            //       //  iconTheme: IconThemeData(),
-            //       // iconTheme: ,
-            //       labelTextStyle: MaterialStateProperty.all(TextStyle(
-            //     fontSize: 12,
-            //     fontFamily: 'Avenir',
-            //     fontWeight: FontWeight.normal,
-            //     color: Color(0xff37B898),
-
-            //   ))),
-            //   child: NavigationBar(
-            //       // height: ,
-            //       // backgroundColor: ,
-            //       labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-
-            //       animationDuration: Duration(seconds: 1),
-            //       selectedIndex: index,
-            //       onDestinationSelected: (index) => setState(() {
-            //             this.index = index;
-            //           }),
-            //       destinations: [
-            //         NavigationDestination(
-            //           icon: Icon(Iconsax.home_11),
-            //           selectedIcon: Icon(
-            //             Iconsax.home,
-            //             color: Color(0xff37B898),
-            //           ),
-            //           label: 'Home',
-            //         ),
-            //         NavigationDestination(
-            //           icon: Icon(Iconsax.book_square),
-            //           selectedIcon: Icon(
-            //             Iconsax.book_square,
-            //             color: Color(0xff37B898),
-            //           ),
-            //           label: 'Quran',
-            //         ),
-            //         NavigationDestination(
-            //           icon: Icon(Iconsax.clock),
-            //           selectedIcon: Icon(
-            //             Iconsax.clock,
-            //             color: Color(0xff37B898),
-            //           ),
-            //           label: 'Prayers',
-            //         ),
-            //         NavigationDestination(
-            //           icon: Icon(Iconsax.profile),
-            //           selectedIcon: Icon(
-            //             Iconsax.profile,
-            //             color: Color(0xff37B898),
-            //           ),
-            //           label: 'Profile',
-            //         ),
-            //       ]),
-            // ),
+    return Scaffold(
+      body: IndexedStack(
+        //TO KEEP ALL CHILDREN IN WIDGET TREE ALIVE & STATE
+        index: index,
+        children: screens,
+      ),
+      bottomNavigationBar: NavigationBarTheme(
+        
+        data: NavigationBarThemeData(
+          height: size.height * .07,
+          // backgroundColor: Colors.black,
+          iconTheme: MaterialStateProperty.all(IconThemeData(
+            color: Color(0xffBABABA),
+          )),
             
-            BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: Color(0xff37B898),
-              // selectedFontSize: 12,
-              selectedLabelStyle: TextStyle(
+          // labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+          // animationDuration: const Duration(seconds: 3),
+            
+          indicatorColor: Colors.transparent,
+             
+          labelTextStyle: MaterialStateProperty.all(
+            TextStyle(
                 fontSize: 12,
                 fontFamily: 'Avenir',
-                fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.bold,
                 color: Color(0xff37B898),
               ),
-              unselectedFontSize: 12,
-              iconSize: 24,
-              unselectedItemColor: Colors.grey,
-              // iconSize: ,
-          currentIndex: currentIndex,
-
-          onTap: (index) => setState(() {
-            currentIndex = index;
-          }),
-          items: [
-            BottomNavigationBarItem(
+          ),
+        ),
+        child: NavigationBar(
+          onDestinationSelected: (index) => setState(
+            () => this.index = index,
+          ),
+          selectedIndex: index,
+          
+          destinations: [
+            NavigationDestination(
               icon: Icon(Iconsax.home_2),
-              activeIcon: Icon(Iconsax.home1),
+              
+              selectedIcon: Icon(
+                Iconsax.home_2,
+                color: Color(0xff37B898),
+              ),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Iconsax.book_square),
+              selectedIcon: Icon(
+                Iconsax.book_square,
+                color: Color(0xff37B898),
+              ),
               label: 'Quran',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Iconsax.clock),
+              selectedIcon: Icon(
+                Iconsax.clock,
+                color: Color(0xff37B898),
+              ),
               label: 'Prayers',
             ),
-            
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Iconsax.user),
+              selectedIcon: Icon(
+                Iconsax.user,
+                color: Color(0xff37B898),
+              ),
               label: 'Profile',
             ),
-            
           ],
-        ));
+        ),
+      ),
+    );
   }
-  }
+}

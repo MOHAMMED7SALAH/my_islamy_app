@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+
+class MyDropDownButton extends StatefulWidget {
+  const MyDropDownButton({Key? key}) : super(key: key);
+
+  @override
+  _MyDropDownButtonState createState() => _MyDropDownButtonState();
+}
+
+class _MyDropDownButtonState extends State<MyDropDownButton> {
+// Initial Selected Value
+  String dropdownvalue = 'English';
+
+// List of items in our dropdown menu
+  var items = [
+    'English',
+    'Arabic',
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      decoration: InputDecoration(
+              border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(2),
+          )),
+        // Initial Value
+        value: dropdownvalue,
+
+        // Down Arrow Icon
+        icon: const Icon(Icons.keyboard_arrow_down),
+
+        // Array list of items
+        items: items.map((String items) {
+          return DropdownMenuItem(
+            value: items,
+            child: Text(items),
+          );
+        }).toList(),
+        // After selecting the desired option,it will
+        // change button value to selected value
+        onChanged: (String? newValue) {
+          setState(() {
+            dropdownvalue = newValue!;
+          });
+        },
+      ),
+    );
+  }
+}
