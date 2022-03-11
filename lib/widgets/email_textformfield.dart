@@ -16,6 +16,7 @@ class _buildEmailState extends State<buildEmail> {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        hintText: 'Exampleuser@gmail.com',
         prefixIcon: Icon(Icons.email_rounded, color: Color(0xff37B898)),
         labelText: 'Email',
 

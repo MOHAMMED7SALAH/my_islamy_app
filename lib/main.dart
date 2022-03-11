@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_islamy_app/firebase_options.dart';
+import 'package:my_islamy_app/views/about_us_view.dart';
 import 'package:my_islamy_app/views/azkar_view.dart';
 import 'package:my_islamy_app/views/edit_profile_view.dart';
 import 'package:my_islamy_app/views/enable_location.dart';
@@ -9,6 +10,7 @@ import 'package:my_islamy_app/views/home_view.dart';
 import 'package:my_islamy_app/views/intro_view.dart';
 import 'package:my_islamy_app/views/language_view.dart';
 import 'package:my_islamy_app/views/profile_view.dart';
+import 'package:my_islamy_app/views/reset_password_view.dart';
 import 'package:my_islamy_app/views/rest_password.dart';
 import 'package:my_islamy_app/views/sign_in_view.dart';
 import 'package:my_islamy_app/views/sing_up_view.dart';
@@ -39,8 +41,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DatePickerPage(),
-      //EditProfileView(),
+      home: HomeView(),
+      //  AboutUsView()
+      // ResetPasswordView()
+      // DatePickerPage(),
+      // EditProfileView(),
       // this for bottom nav
       // MyHomePage1(),
     );

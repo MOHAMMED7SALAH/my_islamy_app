@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class buildUsername extends StatefulWidget {
-  buildUsername({Key? key}) : super(key: key);
+class buildYear extends StatefulWidget {
+  buildYear({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<buildUsername> createState() => _buildUsernameState();
+  State<buildYear> createState() => _buildYearState();
 }
 
-class _buildUsernameState extends State<buildUsername> {
-  String username = '';
+class _buildYearState extends State<buildYear> {
+  String year = '';
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
       decoration: InputDecoration(
-        prefixIcon: Icon(Iconsax.user, color: Color(0xff37B898)),
-
-        labelText: 'Username',
+        labelText: 'Year',
+        hintText: 'Year',
+        suffixIcon: Icon(Iconsax.calendar_1),
+        // hintStyle: TextStyle(),
         border: OutlineInputBorder(
           borderSide: const BorderSide(color: Color(0xff37B898), width: 1.0),
           borderRadius: BorderRadius.circular(16.0),
@@ -35,16 +37,15 @@ class _buildUsernameState extends State<buildUsername> {
         // errorStyle: TextStyle(color: Colors.purple),
       ),
       validator: (value) {
-        if (value!.length < 4) {
-          return 'Enter at least 4 characters';
+        if (value!.isEmpty) {
+          return 'Enter Number';
         } else {
           return null;
         }
       },
-      keyboardType: TextInputType.name,
+      keyboardType: TextInputType.number,
       obscureText: true,
-      maxLength: 30,
-      onSaved: (value) => setState(() => username = value!),
+      onSaved: (value) => setState(() => year = value!),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:my_islamy_app/widgets/build_category.dart';
@@ -22,6 +23,8 @@ class HomeView extends StatelessWidget {
             width: size.width,
             fit: BoxFit.fill,
           ),
+          // SingleChildScrollView(
+          //   child:
           Container(
             margin: EdgeInsets.only(top: 77),
             child: Padding(
@@ -124,30 +127,92 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 26),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      MyCategory(
-                        textCategory: 'Tasbeeh',
-                        myIconSize: 50.0,
-                        urlImage: 'assets/tasbeeh.png',
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MyCategory(
+                          textCategory: 'Tasbeeh',
+                          myIconSize: 50.0,
+                          urlImage: 'assets/tasbeeh.png',
+                        ),
+                        MyCategory(
+                          textCategory: 'Tasbeeh',
+                          myIconSize: 50.0,
+                          urlImage: 'assets/tasbeeh.png',
+                        ),
+                        MyCategory(
+                          textCategory: 'Tasbeeh',
+                          myIconSize: 50.0,
+                          urlImage: 'assets/tasbeeh.png',
+                        ),
+                        MyCategory(
+                          textCategory: 'Tasbeeh',
+                          myIconSize: 50.0,
+                          urlImage: 'assets/tasbeeh.png',
+                        ),
+                        MyCategory(
+                          textCategory: 'Azkar',
+                          myIconSize: 50.0,
+                          urlImage: 'assets/azkar.png',
+                        ),
+                        MyCategory(
+                          textCategory: 'Calendar',
+                          myIconSize: 50.0,
+                          urlImage: 'assets/calender.png',
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      // physics: BouncingScrollPhysics,
+                      // scrollDirection: Axis.vertical,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          MyCategory(
+                            textCategory: 'Tasbeeh',
+                            myIconSize: 50.0,
+                            urlImage: 'assets/tasbeeh.png',
+                          ),
+                          MyCategory(
+                            textCategory: 'Tasbeeh',
+                            myIconSize: 50.0,
+                            urlImage: 'assets/tasbeeh.png',
+                          ),
+                          MyCategory(
+                            textCategory: 'Tasbeeh',
+                            myIconSize: 50.0,
+                            urlImage: 'assets/tasbeeh.png',
+                          ),
+                          MyCategory(
+                            textCategory: 'Tasbeeh',
+                            myIconSize: 50.0,
+                            urlImage: 'assets/tasbeeh.png',
+                          ),
+                          MyCategory(
+                            textCategory: 'Azkar',
+                            myIconSize: 50.0,
+                            urlImage: 'assets/azkar.png',
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          MyCategory(
+                            textCategory: 'Calendar',
+                            myIconSize: 50.0,
+                            urlImage: 'assets/calender.png',
+                          )
+                        ],
                       ),
-                      MyCategory(
-                        textCategory: 'Azkar',
-                        myIconSize: 50.0,
-                        urlImage: 'assets/azkar.png',
-                      ),
-                      MyCategory(
-                        textCategory: 'Calendar',
-                        myIconSize: 50.0,
-                        urlImage: 'assets/calender.png',
-                      )
-                    ],
-                  )
+                    ),
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ]),
       ),
     );

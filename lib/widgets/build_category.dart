@@ -28,8 +28,8 @@ class MyCategory extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Color(0xffE5E5E5),
-                blurRadius: 10.0, // soften the shadow
-                spreadRadius: 5.0, //extend the shadow
+                blurRadius: 36.0, // soften the shadow
+                // spreadRadius: 5.0, //extend the shadow
               )
             ],
           ),
@@ -41,7 +41,7 @@ class MyCategory extends StatelessWidget {
                 height: myIconSize,
                 width: myIconSize,
               ),
-              SizedBox(height: size.height * .03),
+              SizedBox(height: size.height * .01),
               Text(
                 textCategory,
                 style: TextStyle(
